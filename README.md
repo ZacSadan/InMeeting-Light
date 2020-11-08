@@ -8,6 +8,7 @@ pip install yeelight
 
 Testing :
 
+>>
 discover_bulbs() # get the ip address
 bulb = Bulb("10.0.0.11")
 bulb.turn_on()
