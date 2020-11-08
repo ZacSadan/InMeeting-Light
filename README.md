@@ -1,7 +1,7 @@
 # InMeeting-Light-Notification
 
 
-installation:
+Installation:
 
 ```
 [needs python 3]
