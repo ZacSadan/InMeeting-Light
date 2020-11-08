@@ -1,10 +1,10 @@
 # InMeeting-Light-Notification
 
-need python 3 and above .
 
 installation:
 
 ```
+[needs python 3]
 pip install yeelight
 pip install -U google-api-python-client
 ```
