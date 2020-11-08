@@ -1,4 +1,6 @@
-# InMeeting-Light-Notification
+# InMeeting Light
+
+## Connect with Google Calendar and turn on Yeelight blub according to your meetings importance using Python.
 
 
 Installation:
