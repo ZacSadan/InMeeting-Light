@@ -1,25 +1,58 @@
 # InMeeting Light
 
-## Connect with Google Calendar and turn on Yeelight blub according to your meetings importance using Python.
+## Control Yeelight blub according to your Google Calendar meetings importance.
+
+InMeeting-Light is running each 5 minutes, connect to your Google Calendar , fetch events and check if now ( or in 10 minutes ) you have a meeting.
+InMeeting-Light is also setting the bulb color according to your Google Calendar meetings importance.
 
 
-Installation:
+Yeelight blub - in important meeting
+
+<img src="images/red.jpg" height="100">
+
+Yeelight blub - can enter room
+
+<img src="images/green.jpg" height="100">
+
+Yeelight blub Off
+
+<img src="images/off.jpg" height="100">
+
+### customization of the code is super-easy :
 
 ```
-[needs python 3]
-pip install yeelight
-pip install -U google-api-python-client
+def in_meeting_logic(meeting_found,attendees_found,attendees_out_of_company_found):
+	
+	if attendees_out_of_company_found:
+		bulb_light("on",255,0,0) 		# red
+
+	elif attendees_found:
+		bulb_light("on",0,128,0) 		# green
+
+	elif meeting_found:
+		bulb_light("off",0,0,0)
+
+	else:
+		bulb_light("off",0,0,0)
+
 ```
 
-Testing :
+### Installation:
 
 ```
-from yeelight import discover_bulbs
-from yeelight import Bulb
-discover_bulbs() # get the ip address
-bulb = Bulb("10.0.0.11")
-bulb.turn_on()
-bulb.set_rgb(255, 105, 180)
-bulb.turn_off()
+   [needs python 3]
+
+   Yeelight installation
+   https://yeelight.readthedocs.io/en/latest/
+   - pip install yeelight
+   - Enable LAN Access using Yeelight App
+
+   Google Calendar API 
+   - pip install dateutils
+   - pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+   - follow instructions in : https://developers.google.com/calendar/quickstart/python
+   - Save credentials.json to the same folder.
+
+   Add Linux["Cron"] or Windows["Task Scheduler"] : each 5 minutes.
 ```
-Code:
+
